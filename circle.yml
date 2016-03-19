@@ -5,6 +5,7 @@ machine:
 dependencies:
   override:
     - docker login -e $DOCKER_EMAIL -p $DOCKER_PASSWORD -u $DOCKER_USERNAME
+    - docker pull jsonfry/android-sdk:support
 
 test:
   override:
