@@ -1,3 +1,4 @@
+#!/bin/bash
 # As described by `android list sdk --all --extended`
 
 sdks=( "23" "22" "21" "20" "19" "18" "17" "16" "15" )
