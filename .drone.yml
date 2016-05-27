@@ -1,9 +1,0 @@
-build:
-  image: docker:1.10.3-dind
-  volumes:
-  - /var/run/docker.sock:/var/run/docker.sock
-  commands:
-  - docker login -e $$DOCKER_EMAIL -p $$DOCKER_PASSWORD -u $$DOCKER_USERNAME
-  - docker pull jsonfry/android-sdk:support
-  - apk add --no-cache bash
-  - ./build-sdk.sh
