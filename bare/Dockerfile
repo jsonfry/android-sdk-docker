@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER jsonfry "jason@ocasta.co"
+MAINTAINER jsonfry "jason@ocasta.com"
 
 # Install Java7
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -7,8 +7,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 \
     && apt-get update \
-    && echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-    && apt-get install -y --no-install-recommends oracle-java7-installer lib32ncurses5 lib32stdc++6 lib32z1 \
+    && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
+    && apt-get install -y --no-install-recommends oracle-java8-installer lib32ncurses5 lib32stdc++6 lib32z1 \
     && apt-get clean
 
 # Download And Extract Android SDK
