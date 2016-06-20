@@ -1,8 +1,8 @@
 #!/bin/bash
 # As described by `android list sdk --all --extended`
 
-sdks=( "24" )
-build_tools=( "24.0.0" )
+sdks=( "24" "23" )
+build_tools=( "24.0.0" "23.0.3" )
 dockerfile_base=$'FROM jsonfry/android-sdk:support\n'
 
 for sdk in "${sdks[@]}"
