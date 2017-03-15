@@ -1,0 +1,14 @@
+platform-tools
+platforms;android-25
+platforms;android-24
+platforms;android-23
+build-tools;25.0.2
+build-tools;24.0.3
+build-tools;23.0.3
+extras;android;m2repository
+extras;google;m2repository
+extras;google;google_play_services
+extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2
+add-ons;addon-google_apis-google-23
+add-ons;addon-google_apis-google-22
+add-ons;addon-google_apis-google-21
