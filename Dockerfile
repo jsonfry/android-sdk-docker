@@ -27,3 +27,7 @@ RUN echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > ${ANDROID_HOME}/licenses/and
 # Android packages
 ADD packages /opt/android-sdk/packages
 RUN sdkmanager --package_file=packages
+
+# ADB Key - Be careful what you do with devices that trust the built in key
+ADD adbkey /root/.android/adbkey
+ADD adbkey.pub /root/.android/adbkey.pub
