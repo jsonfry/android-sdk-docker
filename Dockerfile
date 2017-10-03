@@ -13,9 +13,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 # Download And Extract Android SDK
 WORKDIR /opt/android-sdk
-RUN wget -nv http://dl.google.com/android/repository/tools_r25.2.5-linux.zip \
-    && unzip tools_r25.2.5-linux.zip \
-    && rm -f tools_r25.2.5-linux.zip
+RUN wget -nv http://dl.google.com/android/repository/sdk-tools-linux-3859397.zip \
+    && unzip sdk-tools-linux-3859397.zip \
+    && rm -f sdk-tools-linux-3859397.zip
 
 # Android SDK Paths
 ENV ANDROID_HOME /opt/android-sdk
