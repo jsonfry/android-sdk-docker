@@ -22,8 +22,7 @@ ENV ANDROID_HOME /opt/android-sdk
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 
 RUN mkdir -p ${ANDROID_HOME}/licenses
-RUN echo 8933bad161af4178b1185d1a37fbf41ea5269c55 > ${ANDROID_HOME}/licenses/android-sdk-license
-RUN echo d56f5187479451eabf01fb78af6dfcb131a6481e >> ${ANDROID_HOME}/licenses/android-sdk-license
+RUN echo d56f5187479451eabf01fb78af6dfcb131a6481e > ${ANDROID_HOME}/licenses/android-sdk-license
 
 # Android packages
 ADD packages /opt/android-sdk/packages
