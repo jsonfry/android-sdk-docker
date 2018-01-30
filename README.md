@@ -34,9 +34,9 @@ pipeline:
     commands:
       - export GRADLE_USER_HOME=$PWD/.gradle
       - ./gradlew assembleRelease crashlyticsUploadDistributionRelease
-  when:
-    branch: develop
-    event: push
+    when:
+      branch: develop
+      event: push
 
   testdevices:
     image: jsonfry/android-sdk:18.01
