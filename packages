@@ -6,6 +6,4 @@ build-tools;28.0.3
 build-tools;27.0.3
 build-tools;26.0.3
 extras;android;m2repository
-extras;google;m2repository
 extras;google;google_play_services
-extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2
