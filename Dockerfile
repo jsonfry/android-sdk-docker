@@ -1,21 +1,17 @@
-FROM ubuntu:14.04
+FROM openjdk:8-slim
 MAINTAINER jsonfry "jason@ocasta.com"
 
 # Install Java
 RUN DEBIAN_FRONTEND=noninteractive \
-    && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list \
-    && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 \
     && apt-get update \
-    && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-    && apt-get install -y --no-install-recommends oracle-java8-installer lib32ncurses5 lib32stdc++6 lib32z1 unzip \
+    && apt-get install -y curl unzip \
     && apt-get clean
 
 # Download And Extract Android SDK
 WORKDIR /opt/android-sdk
-RUN wget -nv http://dl.google.com/android/repository/sdk-tools-linux-3859397.zip \
-    && unzip sdk-tools-linux-3859397.zip \
-    && rm -f sdk-tools-linux-3859397.zip
+RUN curl -o tools.zip https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip \
+    && unzip tools.zip \
+    && rm -f tools.zip
 
 # Android SDK Paths
 ENV ANDROID_HOME /opt/android-sdk
@@ -26,7 +22,10 @@ RUN echo 24333f8a63b6825ea9c5514f83c2829b004d1fee > ${ANDROID_HOME}/licenses/and
 
 # Android packages
 ADD packages /opt/android-sdk/packages
-RUN sdkmanager --package_file=packages
+RUN mkdir -p /root/.android && touch /root/.android/repositories.cfg
+# RUN sdkmanager --package_file=packages
+# Workaround https://issuetracker.google.com/issues/66465833
+RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < packages && sdkmanager ${PACKAGES}
 
 # ADB Key - Be careful what you do with devices that trust the built in key
 ADD adbkey /root/.android/adbkey
