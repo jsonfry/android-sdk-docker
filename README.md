@@ -41,6 +41,7 @@ pipeline:
   testdevices:
     image: jsonfry/android-sdk:19.06
     pull: true
+    privileged: true
     devices:
       - "/dev/bus/usb:/dev/bus/usb"
     commands:
