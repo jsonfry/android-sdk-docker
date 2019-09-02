@@ -19,7 +19,7 @@ pipeline:
       - /tmp/cache:/cache
 
   test:
-    image: jsonfry/android-sdk:19.06
+    image: jsonfry/android-sdk:19.09
     pull: true
     commands:
       - export GRADLE_USER_HOME=$PWD/.gradle # so we can cache dependencies
@@ -28,7 +28,7 @@ pipeline:
       event: push
 
   fabricbeta:
-    image: jsonfry/android-sdk:19.06
+    image: jsonfry/android-sdk:19.09
     pull: true
     secrets: [ app_key ] # if you pass in your app's key as an environment variable
     commands:
@@ -39,7 +39,7 @@ pipeline:
       event: push
 
   testdevices:
-    image: jsonfry/android-sdk:19.06
+    image: jsonfry/android-sdk:19.09
     pull: true
     privileged: true
     devices:
@@ -53,7 +53,7 @@ pipeline:
       event: push
 
   release:
-    image: jsonfry/android-sdk:19.06
+    image: jsonfry/android-sdk:19.09
     pull: true
     secrets: [ app_key ]
     commands:
